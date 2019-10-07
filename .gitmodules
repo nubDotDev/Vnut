@@ -1,0 +1,3 @@
+[submodule "Vnut/vendor/spdlog"]
+	path = Vnut/vendor/spdlog
+	url = https://github.com/gabime/spdlog

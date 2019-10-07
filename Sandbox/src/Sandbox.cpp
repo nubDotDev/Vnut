@@ -3,15 +3,8 @@
 class Sandbox : public Vnut::Application
 {
 public:
-	Sandbox()
-	{
-
-	}
-
-	~Sandbox()
-	{
-
-	}
+	Sandbox() {}
+	~Sandbox() {}
 };
 
 Vnut::Application* Vnut::createApplication()
