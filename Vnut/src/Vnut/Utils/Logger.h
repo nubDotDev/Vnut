@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#include "Core.h"
+#include "Vnut/Core/Core.h"
 #include "spdlog/spdlog.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
 
@@ -10,14 +10,14 @@ namespace Vnut {
 
 	class VNUT_API Logger
 	{
-	private:
-		static std::shared_ptr<spdlog::logger> s_clientLogger;
-		static std::shared_ptr<spdlog::logger> s_coreLogger;
 	public:
 		static void init();
 
 		static inline std::shared_ptr<spdlog::logger>& getClientLogger() { return s_clientLogger; }
 		static inline std::shared_ptr<spdlog::logger>& getCoreLogger() { return s_coreLogger; }
+	private:
+		static std::shared_ptr<spdlog::logger> s_clientLogger;
+		static std::shared_ptr<spdlog::logger> s_coreLogger;
 	};
 
 }

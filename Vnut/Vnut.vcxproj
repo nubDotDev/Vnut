@@ -80,7 +80,7 @@
       <PrecompiledHeaderFile>vnutpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VNUT_PLATFORM_WINDOWS;VNUT_BUILD_DLL;VNUT_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -89,6 +89,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\bin\Debug-windows-x86_64\Vnut\Vnut.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
@@ -101,7 +102,7 @@
       <PrecompiledHeaderFile>vnutpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VNUT_PLATFORM_WINDOWS;VNUT_BUILD_DLL;VNUT_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -114,6 +115,7 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\bin\Release-windows-x86_64\Vnut\Vnut.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
@@ -126,7 +128,7 @@
       <PrecompiledHeaderFile>vnutpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VNUT_PLATFORM_WINDOWS;VNUT_BUILD_DLL;VNUT_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -139,6 +141,7 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\bin\Dist-windows-x86_64\Vnut\Vnut.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
@@ -147,18 +150,26 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Vnut.h" />
-    <ClInclude Include="src\Vnut\Application.h" />
-    <ClInclude Include="src\Vnut\Core.h" />
-    <ClInclude Include="src\Vnut\EntryPoint.h" />
-    <ClInclude Include="src\Vnut\Logger.h" />
+    <ClInclude Include="src\Vnut\Core\Application.h" />
+    <ClInclude Include="src\Vnut\Core\Core.h" />
+    <ClInclude Include="src\Vnut\Core\EntryPoint.h" />
+    <ClInclude Include="src\Vnut\Events\Event.h" />
+    <ClInclude Include="src\Vnut\Events\InputEvent.h" />
+    <ClInclude Include="src\Vnut\Utils\Logger.h" />
+    <ClInclude Include="src\Vnut\Vnut.h" />
     <ClInclude Include="src\vnutpch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Vnut\Application.cpp" />
-    <ClCompile Include="src\Vnut\Logger.cpp" />
+    <ClCompile Include="src\Vnut\Core\Application.cpp" />
+    <ClCompile Include="src\Vnut\Utils\Logger.cpp" />
     <ClCompile Include="src\vnutpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
+      <Project>{154B857C-0182-860D-AA6E-6C109684020F}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

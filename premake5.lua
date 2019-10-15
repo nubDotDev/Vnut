@@ -10,6 +10,8 @@ workspace "Vnut"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+include "Vnut/vendor/GLFW"
+
 project "Vnut"
 	location "Vnut"
 	kind "SharedLib"
@@ -23,6 +25,7 @@ project "Vnut"
 
 	files
 	{
+		"%{prj.name}/src/Vnut/Vnut.h",
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp"
 	}
@@ -30,7 +33,14 @@ project "Vnut"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{prj.name}/vendor/GLFW/include",
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
@@ -77,8 +87,8 @@ project "Sandbox"
 
 	includedirs
 	{
-		"Vnut/vendor/spdlog/include",
-		"Vnut/src"
+		"Vnut/src",
+		"Vnut/vendor/spdlog/include"
 	}
 
 	links

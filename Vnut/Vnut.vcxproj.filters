@@ -4,29 +4,47 @@
     <Filter Include="Vnut">
       <UniqueIdentifier>{921B8E7C-7E52-8F0D-273F-751013550B0F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Vnut\Core">
+      <UniqueIdentifier>{2A4BA1D8-96B5-554F-DFF3-06F54B9D33A4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vnut\Events">
+      <UniqueIdentifier>{36CF428B-A284-BB80-2B79-B557972DB284}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vnut\Utils">
+      <UniqueIdentifier>{720213EE-5EBA-543B-C7C1-2D97B398EF2B}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Vnut.h" />
-    <ClInclude Include="src\Vnut\Application.h">
-      <Filter>Vnut</Filter>
+    <ClInclude Include="src\Vnut\Core\Application.h">
+      <Filter>Vnut\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Vnut\Core.h">
-      <Filter>Vnut</Filter>
+    <ClInclude Include="src\Vnut\Core\Core.h">
+      <Filter>Vnut\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Vnut\EntryPoint.h">
-      <Filter>Vnut</Filter>
+    <ClInclude Include="src\Vnut\Core\EntryPoint.h">
+      <Filter>Vnut\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Vnut\Logger.h">
+    <ClInclude Include="src\Vnut\Events\Event.h">
+      <Filter>Vnut\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Vnut\Events\InputEvent.h">
+      <Filter>Vnut\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Vnut\Utils\Logger.h">
+      <Filter>Vnut\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Vnut\Vnut.h">
       <Filter>Vnut</Filter>
     </ClInclude>
     <ClInclude Include="src\vnutpch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Vnut\Application.cpp">
-      <Filter>Vnut</Filter>
+    <ClCompile Include="src\Vnut\Core\Application.cpp">
+      <Filter>Vnut\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Vnut\Logger.cpp">
-      <Filter>Vnut</Filter>
+    <ClCompile Include="src\Vnut\Utils\Logger.cpp">
+      <Filter>Vnut\Utils</Filter>
     </ClCompile>
     <ClCompile Include="src\vnutpch.cpp" />
   </ItemGroup>

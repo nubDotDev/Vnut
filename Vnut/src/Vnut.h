@@ -1,7 +1,8 @@
 #pragma once
 
-#include "Vnut/Application.h"
-#include "Vnut/Logger.h"
+#include "Vnut/Core/Application.h"
+#include "Vnut/Core/Application.h"
+#include "Vnut/Utils/Logger.h"
 
 // ENTRY POINT
-#include "Vnut/EntryPoint.h"
+#include "Vnut/Core/EntryPoint.h"

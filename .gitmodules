@@ -1,3 +1,6 @@
 [submodule "Vnut/vendor/spdlog"]
 	path = Vnut/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "Vnut/vendor/GLFW"]
+	path = Vnut/vendor/GLFW
+	url = https://github.com/nubDotDev/glfw
