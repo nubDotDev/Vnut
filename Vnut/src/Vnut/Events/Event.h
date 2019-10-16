@@ -41,9 +41,9 @@ namespace Vnut
 	{
 	public:
 		template<typename EventType>
-		void send(EventType* event)
+		static void send(EventType* event)
 		{
-			HandlerList* handlerList = m_handlers[typeid(EventType)];
+			HandlerList* handlerList = s_handlers[typeid(EventType)];
 			if (handlerList == nullptr)
 				return;
 			for (auto& handler : *handlerList)
@@ -51,23 +51,23 @@ namespace Vnut
 		}
 		
 		template<typename T, typename EventType>
-		void subscribe(T* inst, void(T::*handlerFunc)(EventType*))
+		static void subscribe(T* inst, void(T::*handlerFunc)(EventType*))
 		{
-			HandlerList* handlerList = m_handlers[typeid(EventType)];
+			HandlerList* handlerList = s_handlers[typeid(EventType)];
 			if (handlerList == nullptr)
 			{
 				handlerList = new HandlerList();
 				handlerList->push_back(new Handler<T, EventType>(inst, handlerFunc));
-				m_handlers[typeid(EventType)] = handlerList;
+				s_handlers[typeid(EventType)] = handlerList;
 			}
 			else
 			{
 				handlerList->push_back(new Handler<T, EventType>(inst, handlerFunc));
-				m_handlers[typeid(EventType)] = handlerList;
+				s_handlers[typeid(EventType)] = handlerList;
 			}
 		}
 	private:
-		std::map<std::type_index, HandlerList*> m_handlers;
+		static std::map<std::type_index, HandlerList*> s_handlers;
 	};
 
 }

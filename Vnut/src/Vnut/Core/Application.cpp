@@ -1,17 +1,16 @@
 #include "vnutpch.h"
+
 #include "Application.h"
 #include "Vnut/Utils/Logger.h"
 
 namespace Vnut {
 
-	Application::Application()
-	{
-		//m_eventBus = std::unique_ptr<EventBus>(new EventBus());
-	}
+	Application::Application() : m_window(new VNUT_WINDOW()) {}
 
 	void Application::run()
 	{
-		while (true) {
+		while (m_running) {
+			m_window->onUpdate();
 		}
 	}
 

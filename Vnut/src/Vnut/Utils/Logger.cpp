@@ -1,4 +1,5 @@
 #include "vnutpch.h"
+
 #include "Logger.h"
 
 namespace Vnut {

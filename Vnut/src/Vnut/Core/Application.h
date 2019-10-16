@@ -1,8 +1,8 @@
 #pragma once
 
 #include "Core.h"
-
-//#include "Vnut/Events/Event.h"
+#include "Window.h"
+#include "Vnut/Events/Event.h"
 
 namespace Vnut {
 
@@ -14,7 +14,9 @@ namespace Vnut {
 
 		void run();
 	private:
-		//std::unique_ptr<EventBus> m_eventBus;
+		bool m_running = true;
+
+		std::unique_ptr<Window> m_window;
 	};
 	 
 	// Defined by client

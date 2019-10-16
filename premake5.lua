@@ -61,14 +61,17 @@ project "Vnut"
 
 	filter "configurations:Debug"
 		defines "VNUT_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "VNUT_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "VNUT_DIST"
+		buildoptions "/Md"
 		optimize "On"
 
 project "Sandbox"
@@ -88,6 +91,7 @@ project "Sandbox"
 	includedirs
 	{
 		"Vnut/src",
+		"Vnut/vendor/GLFW/include",
 		"Vnut/vendor/spdlog/include"
 	}
 
