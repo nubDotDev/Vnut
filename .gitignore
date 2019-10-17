@@ -1,10 +1,12 @@
-# Directories
+# Binaries
 
-.vs/
 bin/
 bin-int/
 
-# Files
+# VS files
 
-*.user
-*.bat
+.vs/
+**.sln
+**.vcxproj
+**.vcxproj.filters
+**.vcxproj.user
