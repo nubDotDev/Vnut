@@ -4,12 +4,12 @@ workspace "Vnut"
 	configurations
 	{
 		"Debug",
-		"Release",
-		"Dist"
+		"Release"
 	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+include "Vnut/vendor/glad"
 include "Vnut/vendor/GLFW"
 
 project "Vnut"
@@ -34,11 +34,13 @@ project "Vnut"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
+		"%{prj.name}/vendor/glad/include",
 		"%{prj.name}/vendor/GLFW/include",
 	}
 
 	links
 	{
+		"glad",
 		"GLFW",
 		"opengl32.lib"
 	}
@@ -51,7 +53,8 @@ project "Vnut"
 		defines
 		{
 			"VNUT_PLATFORM_WINDOWS",
-			"VNUT_BUILD_DLL"
+			"VNUT_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
@@ -61,17 +64,10 @@ project "Vnut"
 
 	filter "configurations:Debug"
 		defines "VNUT_DEBUG"
-		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "VNUT_RELEASE"
-		buildoptions "/MD"
-		optimize "On"
-
-	filter "configurations:Dist"
-		defines "VNUT_DIST"
-		buildoptions "/Md"
 		optimize "On"
 
 project "Sandbox"
@@ -91,7 +87,7 @@ project "Sandbox"
 	includedirs
 	{
 		"Vnut/src",
-		"Vnut/vendor/GLFW/include",
+		"Vnut/vendor",
 		"Vnut/vendor/spdlog/include"
 	}
 
@@ -116,8 +112,4 @@ project "Sandbox"
 
 	filter "configurations:Release"
 		defines "VNUT_RELEASE"
-		optimize "On"
-
-	filter "configurations:Dist"
-		defines "VNUT_DIST"
 		optimize "On"

@@ -16,8 +16,11 @@ namespace Vnut {
 		inline std::string getTitle() const override { return m_data.title; }
 		inline unsigned int getWidth() const override { return m_data.width; }
 		inline unsigned int getHeight() const override { return m_data.height; }
+
 		inline bool isVSync() const override { return m_data.vSync; }
 		void setVSync(bool enabled) override;
+
+		inline void* getNativeWindow() const override { return m_window; }
 	private:
 		struct WindowData
 		{

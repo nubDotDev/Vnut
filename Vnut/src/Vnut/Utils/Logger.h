@@ -2,9 +2,10 @@
 
 #include <memory>
 
-#include "Vnut/Core/Core.h"
 #include "spdlog/spdlog.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
+
+#include "Vnut/Core/Core.h"
 
 namespace Vnut {
 

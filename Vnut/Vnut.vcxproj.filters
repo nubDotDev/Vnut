@@ -21,6 +21,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
@@ -34,6 +37,9 @@
     <ClInclude Include="src\Vnut\Core\EntryPoint.h">
       <Filter>Vnut\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Vnut\Core\Input.h">
+      <Filter>Vnut\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\Vnut\Core\Window.h">
       <Filter>Vnut\Core</Filter>
     </ClInclude>
@@ -41,6 +47,9 @@
       <Filter>Vnut\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Vnut\Events\InputEvent.h">
+      <Filter>Vnut\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Vnut\Events\WindowEvent.h">
       <Filter>Vnut\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Vnut\Utils\Logger.h">
@@ -52,6 +61,9 @@
     <ClInclude Include="src\vnutpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>
     </ClCompile>

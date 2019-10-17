@@ -9,18 +9,22 @@ namespace Vnut
 {
 
 	// Base Event class
-	class VNUT_API Event {};
+	class VNUT_API Event
+	{
+	public:
+		virtual std::string toString() const { return "Event"; };
+	};
 
 	// Handlers
 
-	class VNUT_API HandlerBase
+	class HandlerBase
 	{
 	public:
 		virtual void call(Event* event) = 0;
 	};
 
 	template<typename T, typename EventType>
-	class VNUT_API Handler : public HandlerBase
+	class Handler : public HandlerBase
 	{
 	public:
 		using HandlerFunc = void(T::*)(EventType*);
@@ -37,6 +41,7 @@ namespace Vnut
 
 	// EventBus
 	using HandlerList = std::vector<HandlerBase*>;
+	using HandlerListMap = std::map<std::type_index, HandlerList*>;
 	class VNUT_API EventBus
 	{
 	public:
@@ -67,7 +72,7 @@ namespace Vnut
 			}
 		}
 	private:
-		static std::map<std::type_index, HandlerList*> s_handlers;
+		static HandlerListMap s_handlers;
 	};
 
 }

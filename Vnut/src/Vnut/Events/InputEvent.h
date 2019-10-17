@@ -21,12 +21,39 @@ namespace Vnut {
 	{
 	public:
 		KeyPressEvent(int key) : KeyEvent(key) {}
+
+		inline std::string toString() const override
+		{
+			std::stringstream ss;
+			ss << "KeyPressEvent: " << m_key;
+			return ss.str();
+		}
 	};
 
 	class VNUT_API KeyReleaseEvent : public KeyEvent
 	{
 	public:
 		KeyReleaseEvent(int key) : KeyEvent(key) {}
+
+		inline std::string toString() const override
+		{
+			std::stringstream ss;
+			ss << "KeyReleaseEvent: " << m_key;
+			return ss.str();
+		}
+	};
+
+	class VNUT_API KeyTypeEvent : public KeyEvent
+	{
+	public:
+		KeyTypeEvent(int key) : KeyEvent(key) {}
+
+		inline std::string toString() const override
+		{
+			std::stringstream ss;
+			ss << "KeyTypeEvent: " << m_key;
+			return ss.str();
+		}
 	};
 
 	// Mouse events
@@ -34,21 +61,35 @@ namespace Vnut {
 	class VNUT_API MouseMoveEvent : public Event
 	{
 	public:
-		MouseMoveEvent(float x, float y) : m_x(x), m_y(y) {}
+		MouseMoveEvent(double xPos, double yPos) : m_xPos(xPos), m_yPos(yPos) {}
 
-		inline float getX() { return m_x; }
-		inline float getY() { return m_y; }
+		inline double getXPos() { return m_xPos; }
+		inline double getYPos() { return m_yPos; }
+
+		inline std::string toString() const override
+		{
+			std::stringstream ss;
+			ss << "MouseMoveEvent: " << m_xPos << ", " << m_yPos;
+			return ss.str();
+		}
 	private:
-		float m_x, m_y;
+		double m_xPos, m_yPos;
 	};
 
 	class VNUT_API MouseScrollEvent : public Event
 	{
 	public:
-		MouseScrollEvent(float xOffset, float yOffset) : m_xOffset(xOffset), m_yOffset(yOffset) {}
+		MouseScrollEvent(double xOffset, double yOffset) : m_xOffset(xOffset), m_yOffset(yOffset) {}
 
-		inline float getXOffset() { return m_xOffset; }
-		inline float getYOffset() { return m_yOffset; }
+		inline double getXOffset() { return m_xOffset; }
+		inline double getYOffset() { return m_yOffset; }
+
+		inline std::string toString() const override
+		{
+			std::stringstream ss;
+			ss << "MouseScrollEvent: " << m_xOffset << ", " << m_yOffset;
+			return ss.str();
+		}
 	private:
 		float m_xOffset, m_yOffset;
 	};
@@ -67,12 +108,26 @@ namespace Vnut {
 	{
 	public:
 		MouseButtonPressEvent(int button) : MouseButtonEvent(button) {}
+
+		inline std::string toString() const override
+		{
+			std::stringstream ss;
+			ss << "MouseButtonPressEvent: " << m_button;
+			return ss.str();
+		}
 	};
 
 	class VNUT_API MouseButtonReleaseEvent : public MouseButtonEvent
 	{
 	public:
 		MouseButtonReleaseEvent(int button) : MouseButtonEvent(button) {}
+		
+		inline std::string toString() const override
+		{
+			std::stringstream ss;
+			ss << "MouseButtonReleaseEvent: " << m_button;
+			return ss.str();
+		}
 	};
 
 }
